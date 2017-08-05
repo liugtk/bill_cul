@@ -23,6 +23,9 @@ bool Bill_interface::addPerson(std::string name)
 		myCurrentNoOfPeople++;
 		return true;
 	}
+	else {
+		std::cerr << "exceed the limit of Persons that can be recorded!!\n";
+	}
 	
 	return false;
 }

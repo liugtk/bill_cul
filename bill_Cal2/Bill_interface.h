@@ -5,7 +5,7 @@
 #include <string>
 #include <map>
 
-static const unsigned int  BIll_INTERFACE_MAX_PEOPLE = 20;
+static const unsigned int  BIll_INTERFACE_MAX_PEOPLE = 20; 
 
 
 class Bill_interface
