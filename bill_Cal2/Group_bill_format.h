@@ -21,6 +21,8 @@ public:
 
 	unsigned int getMaxNoOfPeople() { return GROUP_BILL_FORMAT_MAX_PEOPLE; }
 	void printBill();
+
+	bool getisOwenerInside() { return isOwenerInside; }
 private:
 	std::string myNamelist[GROUP_BILL_FORMAT_MAX_PEOPLE];
 	bool isOwenerInside = true;
