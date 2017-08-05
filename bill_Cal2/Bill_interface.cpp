@@ -15,12 +15,10 @@ Bill_interface::~Bill_interface()
 
 bool Bill_interface::addPerson(std::string name)
 {
-	
-	if (myCurrentNoOfPeople <= BIll_INTERFACE_MAX_PEOPLE) {
-		myPeopleList[myCurrentNoOfPeople] = Person(name, myCurrentNoOfPeople); //initial at the myCount position
-		myNameMap.insert(std::pair<std::string, int>(name, myCurrentNoOfPeople)); // map the string name with the number.
-		//increment the myCount in the end.
-		myCurrentNoOfPeople++;
+	int temp = Person::getNoOfPeople(); 
+	if (temp <= BIll_INTERFACE_MAX_PEOPLE) {
+		myNameMap.insert(std::pair<std::string, int>(name, temp)); 
+		myPeopleList[temp] = Person(name, temp); // after initialting, the no is already incremented, that is why we need the temp.
 		return true;
 	}
 	else {
@@ -39,7 +37,7 @@ void Bill_interface::printPeople()
 	std::cout << "you have following people in your list\n";
 	std::map <std::string, int> ::iterator itr;
 	std::cout << "\tName\tNo\n";
-	for (int itr = 0; itr < myCurrentNoOfPeople; itr++)
+	for (int itr = 0; itr < Person::getNoOfPeople(); itr++)
 	{
 		std::cout << '\t' << myPeopleList[itr].getName()
 			<< '\t' << myPeopleList[itr].getNo() << '\n';

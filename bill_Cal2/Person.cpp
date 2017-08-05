@@ -2,7 +2,7 @@
 
 
 
-
+unsigned int Person::myNoOfPeople ;
 
 
 Person::Person()
@@ -11,6 +11,7 @@ Person::Person()
 
 Person::Person(std::string name, unsigned int no)
 {
+	myNoOfPeople++;
 	myName = name;
 	myNo = no;
 }

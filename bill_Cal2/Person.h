@@ -16,11 +16,13 @@ public:
 	~Person();
 	std::string getName() { return myName; }
 	unsigned int getNo() { return myNo; }
+	static unsigned int getNoOfPeople() { return myNoOfPeople; }
 	void addBill(Group_bill_format);
 	void addBill(Own_bill_format);
 	
-private:
 	
+private:
+	static unsigned int myNoOfPeople;
 	std::string myName;
 	unsigned int myNo = 0;
 	//TODO make a list of bill
