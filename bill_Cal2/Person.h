@@ -2,6 +2,8 @@
 
 #include <string>
 #include "bill_format.h"
+#include "Group_bill_format.h";
+#include "Own_bill_format.h";
 
 const int PERSON_MAX_BILL_STACK = 1000;
 const int PERSON_MAX_NUMBER_OF_PEOPLE = 20;
@@ -14,6 +16,8 @@ public:
 	~Person();
 	std::string getName() { return myName; }
 	unsigned int getNo() { return myNo; }
+	void addBill(Group_bill_format);
+	void addBill(Own_bill_format);
 	
 private:
 	
