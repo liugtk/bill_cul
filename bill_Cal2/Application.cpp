@@ -14,12 +14,12 @@ int main() {
 	Bill_Manager.printPeople();
 
 
-	Own_bill_format bill1(100, "nick" ,"carter");
+	Own_bill_format bill1(100.2, "nick" ,"carter");
 	bill1.printBill();
 
 	string namelist[4] = { "Carter","Nick","GuoWei","Wang" };
 	
-	Group_bill_format bill2(100,namelist,4);
+	Group_bill_format bill2(100.1,namelist,4);
 	bill2.printBill();
 	return 1;
 }

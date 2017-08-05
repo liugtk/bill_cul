@@ -5,7 +5,7 @@
 
 
 
-Own_bill_format::Own_bill_format(unsigned int amount, std::string owner, std::string debtor)
+Own_bill_format::Own_bill_format(float amount, std::string owner, std::string debtor)
 {
 	*myNamelist = owner;
 	*(myNamelist + 1) = debtor;

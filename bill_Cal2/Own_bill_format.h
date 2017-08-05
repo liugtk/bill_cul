@@ -8,7 +8,7 @@ class Own_bill_format :
 	protected bill_format
 {
 public:
-	Own_bill_format(unsigned int amount, std::string owner, std::string debtor);
+	Own_bill_format(float amount, std::string owner, std::string debtor);
 	~Own_bill_format();
 
 
