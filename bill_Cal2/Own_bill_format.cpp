@@ -19,5 +19,5 @@ Own_bill_format::~Own_bill_format()
 
 void Own_bill_format::printBill()
 {
-	std::cout << "type:  \tOWN_bill\tAmount:\t" << getAmount() << "\tOwner:" << *myNamelist << "\tDebter:" << *(myNamelist + 1) << std::endl;
+	std::cout << "type: OWN_bill\tAmount:\t" << getAmount() << "\tOwner:" << *myNamelist << "\tDebter:" << *(myNamelist + 1) << std::endl;
 }

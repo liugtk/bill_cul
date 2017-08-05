@@ -6,10 +6,10 @@
 
 
 
-Group_bill_format:: Group_bill_format(unsigned int amount, std::string * namelist, unsigned int noOfPeople, size_t size, bool isOwenerInside )
+Group_bill_format:: Group_bill_format(unsigned int amount, std::string * namelist, unsigned int noOfPeople,  bool isOwenerInside )
 {
 	for (int i = 0; i < noOfPeople; i++) {
-		myNamelist[1] = *(namelist+i);
+		myNamelist[i] = *(namelist+i);
 	}
 	set_bill_format(amount, namelist, noOfPeople);
 }
@@ -20,7 +20,11 @@ Group_bill_format::~Group_bill_format()
 
 void Group_bill_format::printBill()
 {
-	std::cout << "type:  \tOWN_bill\tAmount:\t" << getAmount() << "\tOwner:" << *myNamelist ;
-	std::cout << "\tDivide by" << (isOwenerInside?getNoOfPeople():(getNoOfPeople() - 1));
-	std::cout <<"with "<< getNoOfPeople() <<"Debter:" << *(myNamelist + 1) << std::endl;
+	std::cout << "type: OWN_bill\tAmount:\t" << getAmount() << "(/" << (isOwenerInside?getNoOfPeople():(getNoOfPeople() - 1))<<")";
+	std::cout << "\tOwner:" << *myNamelist ;
+	std::cout << "\t" << getNoOfPeople()-1 << "Debters:";
+	for(int i = 1 ; i < getNoOfPeople(); i++) {
+		std::cout << *(myNamelist + i) << ", ";
+	}
+	std::cout << std::endl;
 }

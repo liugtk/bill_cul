@@ -17,9 +17,9 @@ int main() {
 	Own_bill_format bill1(100, "nick" ,"carter");
 	bill1.printBill();
 
-	string namelist[4] = { "C","N","G","W" };
+	string namelist[4] = { "Carter","Nick","GuoWei","Wang" };
 	
-	Group_bill_format bill2(100,namelist,4, sizeof(namelist));
+	Group_bill_format bill2(100,namelist,4);
 	bill2.printBill();
 	return 1;
 }
