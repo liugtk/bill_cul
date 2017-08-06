@@ -15,10 +15,11 @@ public:
 	Person();
 	Person(std::string name, unsigned int no);
 	~Person();
+	
 	std::string getName() { return myName; }
 	unsigned int getNo() { return myNo; }
 	static unsigned int getNoOfPeople() { return myNoOfPeople; }
-	void addValidBill(Group_bill_format); //assuming this person is definately inside.
+	void addValidBill(Group_bill_format*); //assuming this person is definately inside.
 	void addValidBill(Own_bill_format);
 	void printBills();
 	void printledger();
@@ -29,7 +30,7 @@ private:
 	std::string myName;
 	unsigned int myNo = 0;
 	//TODO make a list of bill
-	bill_format mybill_list[PERSON_MAX_BILL_STACK];
+	bill_format  *mybill_list[PERSON_MAX_BILL_STACK];
 	int myBill_count = 0;
 	std::map <std::string, float> myPersonal_ledger_map;
 };

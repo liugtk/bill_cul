@@ -22,6 +22,8 @@ Person::~Person()
 
 
 
+
+
 void Person::addValidBill(Own_bill_format)
 {
 }
@@ -29,7 +31,8 @@ void Person::addValidBill(Own_bill_format)
 void Person::printBills()
 {
 	for (int i = 0; i < myBill_count; i++) {
-		mybill_list[i].printBill();
+		
+		mybill_list[i]->printBill();
 	}
 }
 
@@ -52,36 +55,39 @@ void Person::printledger()
 
 }
 
-void Person::addValidBill(Group_bill_format group_bill)
+void Person::addValidBill(Group_bill_format *group_bill)
 {
-	if (group_bill.getNoOfPeople() <= PERSON_MAX_NUMBER_OF_PEOPLE) {
+	if (group_bill->getNoOfPeople() <= PERSON_MAX_NUMBER_OF_PEOPLE) {
 		// add to the bill list
 		mybill_list[myBill_count] = group_bill; 
+
+	
+		
 		//increment the bill count
 		myBill_count++;
 		//create a namelist pointer
 		std::string name;
-		name = group_bill.getName(0);
+		name = group_bill->getName(0);
 
 		float moneyToBeCollect;
-		if (group_bill.getisOwenerInside() ) {
-			moneyToBeCollect = group_bill.getAmount() / group_bill.getMaxNoOfPeople();
+		if (group_bill->getisOwenerInside() ) {
+			moneyToBeCollect = group_bill->getAmount() / group_bill->getNoOfPeople();
 		}
 		else {
-			moneyToBeCollect = group_bill.getAmount() / (group_bill.getMaxNoOfPeople() - 1);
+			moneyToBeCollect = group_bill->getAmount() / (group_bill->getNoOfPeople() - 1);
 		}
 
 		// calculate the person bill state
 		//check if he is the owner 
-		if (myName == group_bill.getName()) { // Owner situation
+		if (myName == group_bill->getName()) { // Owner situation
 			//momney to be colloct is positive
 			//loop for every debtors
-			for (int i = 1; i < group_bill.getNoOfPeople(); i++) {
-				if (myPersonal_ledger_map[group_bill.getName(i)]) { //when this debter exist
-					myPersonal_ledger_map[group_bill.getName(i)]  += moneyToBeCollect;
+			for (int i = 1; i < group_bill->getNoOfPeople(); i++) {
+				if (myPersonal_ledger_map[group_bill->getName(i)]) { //when this debter exist
+					myPersonal_ledger_map[group_bill->getName(i)]  += moneyToBeCollect;
 				}
 				else {// when he is not exist 
-					myPersonal_ledger_map[group_bill.getName(i)] = moneyToBeCollect;
+					myPersonal_ledger_map[group_bill->getName(i)] = moneyToBeCollect;
 					//myPersonal_bill_map[*(namelist + i)] = moneyToBeCollect; // may have a test if this work
 				}
 			}
@@ -89,11 +95,11 @@ void Person::addValidBill(Group_bill_format group_bill)
 		else { // Debtor situation
 			moneyToBeCollect = -moneyToBeCollect; //change to negative, since the person is debtor
 
-			if (myPersonal_ledger_map[group_bill.getName(0)]) { //when this debter exist
-				myPersonal_ledger_map[group_bill.getName(0)] += moneyToBeCollect;
+			if (myPersonal_ledger_map[group_bill->getName(0)]) { //when this debter exist
+				myPersonal_ledger_map[group_bill->getName(0)] += moneyToBeCollect;
 			}
 			else {// when he is not exist 
-				myPersonal_ledger_map[group_bill.getName(0)] = moneyToBeCollect;
+				myPersonal_ledger_map[group_bill->getName(0)] = moneyToBeCollect;
 
 			}
 		}

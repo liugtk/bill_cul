@@ -21,14 +21,12 @@ public:
 	void printPeople();
 	unsigned int getMaxNoOfPeople() { return BIll_INTERFACE_MAX_PEOPLE; }
 	unsigned int getMyCurrentNoOfPeople() { return Person::getNoOfPeople(); }
-	Person getPerson(unsigned int index) {
-		if (index < Person::getNoOfPeople())
-			return myPeopleList[index];
-	}
+
+	void getPerson(Person * *x, int index);
 	//bill related
 	//bool recordOwnBill();
 private:
-	Person myPeopleList[BIll_INTERFACE_MAX_PEOPLE] ;
+	Person *myPeopleList[BIll_INTERFACE_MAX_PEOPLE] ;
 	std::map <std::string, int> myNameMap;
 
 	

@@ -25,12 +25,21 @@ int main() {
 	bill2.printBill();
 
 
+
+
+	/*
+	bill_format *billptr = &bill2;
+	billptr->printBill();
+	*/
+
 	//personal bill test.
-	Person person;
-	person = Bill_Manager.getPerson(0);
-	person.addValidBill(bill2);
-	person.printBills();
-	person.printledger();
+	cout << "\n\nfor person\n";
+	Person *person;
+	
+	Bill_Manager.getPerson(&person, 0);
+	person->addValidBill(&bill2);
+	person->printBills();
+	person->printledger();
 
 
 
