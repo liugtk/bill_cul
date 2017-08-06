@@ -4,6 +4,8 @@
 #include "Own_bill_format.h";
 #include "Group_bill_format.h"
 
+
+
 Bill_interface Bill_Manager;
 using namespace std;
 int main() {
@@ -13,13 +15,24 @@ int main() {
 
 	Bill_Manager.printPeople();
 
-
+	// Own bill test
 	Own_bill_format bill1(100.2, "nick" ,"carter");
 	bill1.printBill();
-
-	string namelist[4] = { "Carter","Nick","GuoWei","Wang" };
 	
+	//group bill test
+	string namelist[4] = { "Carter","Nick","GuoWei","Wang" };
 	Group_bill_format bill2(100.1,namelist,4);
 	bill2.printBill();
+
+
+	//personal bill test.
+	Person person;
+	person = Bill_Manager.getPerson(0);
+	person.addValidBill(bill2);
+	person.printBills();
+	person.printledger();
+
+
+
 	return 1;
 }

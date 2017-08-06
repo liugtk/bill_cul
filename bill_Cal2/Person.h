@@ -20,6 +20,8 @@ public:
 	static unsigned int getNoOfPeople() { return myNoOfPeople; }
 	void addValidBill(Group_bill_format); //assuming this person is definately inside.
 	void addValidBill(Own_bill_format);
+	void printBills();
+	void printledger();
 	
 	
 private:
@@ -29,6 +31,6 @@ private:
 	//TODO make a list of bill
 	bill_format mybill_list[PERSON_MAX_BILL_STACK];
 	int myBill_count = 0;
-	std::map <std::string, float> Personal_bill;
+	std::map <std::string, float> myPersonal_ledger_map;
 };
 

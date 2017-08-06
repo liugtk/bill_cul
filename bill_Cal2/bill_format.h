@@ -18,7 +18,7 @@ public:
 		myNoOfPeople = noOfPeople;
 	}
 	float getAmount() { return myAmount; }
-	void getNamelist(std::string * namelist) { namelist = myNameList; }
+	std::string getName(int index = 0) { return *(myNameList+index) ; }
 	unsigned int getNoOfPeople() { return myNoOfPeople; }
 	~bill_format();
 	virtual void printBill() { std::cerr << "Error. Balance not available for base type." << std::endl; };
