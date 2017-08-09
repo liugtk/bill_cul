@@ -23,6 +23,7 @@ public:
 	unsigned int getMyCurrentNoOfPeople() { return Person::getNoOfPeople(); }
 
 	void getPerson(Person * *x, int index);
+	Person * getPerson(int index);
 	//bill related
 	//bool recordOwnBill();
 private:

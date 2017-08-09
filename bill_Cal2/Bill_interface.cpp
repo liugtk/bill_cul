@@ -55,3 +55,8 @@ void Bill_interface::getPerson(Person ** x, int index)
 	
 }
 
+Person * Bill_interface::getPerson(int index)
+{
+	return myPeopleList[index];
+}
+

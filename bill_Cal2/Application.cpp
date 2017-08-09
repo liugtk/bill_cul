@@ -22,7 +22,7 @@ int main() {
 	//group bill test
 	string namelist[4] = { "Carter","Nick","GuoWei","Wang" };
 	Group_bill_format bill2(100.1,namelist,4);
-	bill2.printBill();
+	//bill2.printBill();
 
 
 
@@ -36,7 +36,8 @@ int main() {
 	cout << "\n\nfor person\n";
 	Person *person;
 	
-	Bill_Manager.getPerson(&person, 0);
+	//Bill_Manager.getPerson(&person, 0);
+	person = Bill_Manager.getPerson(0);
 	person->addValidBill(&bill2);
 	person->printBills();
 	person->printledger();
